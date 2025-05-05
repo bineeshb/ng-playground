@@ -1,1 +1,5 @@
-<h3>Details - {{ id() }}</h3>
+<h3>Details
+  @if(id()) {
+    of Item {{ id() }}
+  }
+</h3>
