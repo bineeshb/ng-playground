@@ -1,0 +1,6 @@
+<h4>Lists</h4>
+@for(item of list; track $index) {
+  <div>
+    <a [routerLink]="['/named-router-outlets',{ outlets: { content: ['details', item.id] } }]">{{ item.label }}</a>
+  </div>
+}

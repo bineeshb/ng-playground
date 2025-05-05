@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { RouterOutlet, provideRouter, withComponentInputBinding } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1>Hello from {{ name }}!</h1>
-    <a target="_blank" href="https://angular.dev/overview">
-      Learn more about Angular
-    </a>
+    <h1>NG Playground</h1>
+    <router-outlet></router-outlet>
   `,
+  styles: `
+    :host {
+      display: block;
+      height: 100vh;
+    }
+  `,
+  imports: [RouterOutlet],
 })
-export class App {
-  name = 'Angular';
-}
+export class App { }
 
-bootstrapApplication(App);
+bootstrapApplication(App, {
+  providers: [provideRouter(appRoutes, withComponentInputBinding())]
+});

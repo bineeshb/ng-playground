@@ -32,7 +32,7 @@
             "outputPath": "dist/demo",
             "polyfills": ["zone.js"],
             "scripts": [],
-            "styles": ["src/global_styles.css"],
+            "styles": ["src/global_styles.scss"],
             "tsConfig": "tsconfig.app.json"
           }
         },
@@ -54,6 +54,11 @@
       "root": "",
       "schematics": {},
       "sourceRoot": "src"
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
     }
   },
   "version": 1
