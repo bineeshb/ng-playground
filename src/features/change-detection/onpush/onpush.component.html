@@ -1,0 +1,24 @@
+<h3>OnPush</h3>
+<button (click)="refresh()">Refresh</button>
+<h4>input - Primitive Array</h4>
+<ul>
+  @for(item of items(); track $index) {
+    <li>{{ item }}</li>
+  }
+</ul>
+@if(showBSSubList()) {
+  <h4>input - BehaviorSubject Array .subscribe</h4>
+  <ul>
+    @for(item of bsItemsList; track $index) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+}
+@if(showBSAsyncList()) {
+  <h4>input - BehaviorSubject Array | async</h4>
+  <ul>
+    @for(item of bsItems() | async; track $index) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+}

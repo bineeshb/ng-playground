@@ -1,1 +1,17 @@
-/* Add application styles & imports to this file! */
+.wrapper {
+  display: flex;
+
+  .col {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid black;
+  }
+
+  .col + .col {
+    margin-left: 10px;
+  }
+}
+
+button + button {
+  margin-left: 10px;
+}

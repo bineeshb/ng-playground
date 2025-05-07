@@ -1,0 +1,24 @@
+<h2>Change Detection</h2>
+<button (click)="initData()">Reset</button>
+<br/><br/>
+<button (click)="pushItem()">Add Item - [].push()</button>
+<button (click)="addItem()">Add Item - New Ref</button>
+<br/><br/>
+<button (click)="addBSItem()">Add Item - bs.next()</button>
+<button (click)="toggleBSSubList()">
+  @if(showBSSubList) { Hide } @else { Show }
+  BS subscribe list
+</button>
+<button (click)="toggleBSAsyncList()">
+  @if(showBSAsyncList) { Hide } @else { Show }
+  BS async list
+</button>
+<br/><br/>
+<div class="wrapper">
+  <div class="col">
+    <app-default [items]="items" [bsItems]="bsItems" [showBSSubList]="showBSSubList" [showBSAsyncList]="showBSAsyncList"></app-default>
+  </div>
+  <div class="col">
+    <app-onpush [items]="items" [bsItems]="bsItems" [showBSSubList]="showBSSubList" [showBSAsyncList]="showBSAsyncList"></app-onpush>
+  </div>
+</div>
