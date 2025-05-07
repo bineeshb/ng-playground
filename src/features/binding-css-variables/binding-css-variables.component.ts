@@ -1,5 +1,6 @@
-import { Component, HostBinding, signal } from '@angular/core';
+import { Component, HostBinding, Renderer2, effect, inject, signal } from '@angular/core';
 import { ChildComponent } from './child/child.component';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-binding-css-variables',
@@ -8,13 +9,20 @@ import { ChildComponent } from './child/child.component';
   styleUrl: './binding-css-variables.component.scss'
 })
 export class BindingCssVariablesComponent {
-  colors = ['red', 'green', 'blue', 'grey', 'black'];
+  colors = ['red', 'green', 'blue', 'grey', 'black', 'pink'];
   hColor = signal(this.colors[0]);
   pColor = signal<string | null>(null);
+  document = inject(DOCUMENT);
   
-  @HostBinding('style.--color')
+  @HostBinding('style.--test-color')
   get hostColor(): string {
     return this.hColor();
+  }
+
+  constructor() {
+    effect(() => {
+      this.document.documentElement.style.setProperty('--test-color', this.hColor());
+    });
   }
 
   updateHostColor(color: string): void {
