@@ -1,0 +1,12 @@
+<h2>Color Change directive</h2>
+
+Update Color: 
+@for(color of colors; track $index; let i = $index) {
+  <label>
+    <input type="radio" name="colors" id="color-{{ i }}" (change)="updateColor(color)">
+    {{ color }}
+  </label>
+}
+
+<p [appChangeColor]="pColor()">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nisi animi et magni libero, soluta ullam esse maxime,<br/>
+  illo vel minima quae beatae mollitia expedita, eum dicta atque enim? Quas!</p>
