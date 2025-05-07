@@ -1,0 +1,9 @@
+:host {
+  color: var(--color);
+}
+
+div {
+  &, p {
+    color: var(--p-color, lightblue);
+  }
+}

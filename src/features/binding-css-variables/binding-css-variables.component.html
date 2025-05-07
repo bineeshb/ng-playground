@@ -1,0 +1,29 @@
+<h2>Binding CSS Variables</h2>
+
+Update Host Color: 
+@for(color of colors; track $index; let i = $index) {
+  <label>
+    <input type="radio" name="hColors" id="color-{{ i }}" (change)="updateHostColor(color)">
+    {{ color }}
+  </label>
+}
+<hr />
+<div [style.--p-color]="pColor()">
+  Update Paragraph Color: 
+  @for(color of colors; track $index; let i = $index) {
+    <label>
+      <input type="radio" name="pColors" id="color-{{ i }}" (change)="updateParaColor(color)">
+      {{ color }}
+    </label>
+  }
+
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta beatae quam accusamus quas<br />
+  officiis doloremque necessitatibus esse quos, a provident dolorum recusandae atque, aut molestiae veniam inventore<br />
+  asperiores aspernatur ad!</p>
+</div>
+<hr />
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta beatae quam accusamus quas<br />
+  officiis doloremque necessitatibus esse quos, a provident dolorum recusandae atque, aut molestiae veniam inventore<br />
+  asperiores aspernatur ad!</p>
+<hr/>
+<app-child></app-child>

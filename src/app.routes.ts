@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
   {
+    path: 'binding-css-variables',
+    loadComponent: () => import('./features/binding-css-variables/binding-css-variables.component').then(c => c.BindingCssVariablesComponent)
+  },
+  {
     path: 'change-detection',
     loadComponent: () => import('./features/change-detection/change-detection.component').then(c => c.ChangeDetectionComponent)
   },
@@ -11,7 +15,7 @@ export const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'change-detection',
+    redirectTo: 'binding-css-variables',
     pathMatch: 'full'
   }
 ];
