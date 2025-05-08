@@ -10,9 +10,10 @@ import { DOCUMENT } from '@angular/common';
 })
 export class BindingCssVariablesComponent {
   colors = ['red', 'green', 'blue', 'grey', 'black', 'pink'];
-  hColor = signal(this.colors[0]);
+  hColor = signal('blueviolet');
   pColor = signal<string | null>(null);
   document = inject(DOCUMENT);
+  renderer = inject(Renderer2);
   
   @HostBinding('style.--test-color')
   get hostColor(): string {
@@ -21,7 +22,8 @@ export class BindingCssVariablesComponent {
 
   constructor() {
     effect(() => {
-      this.document.documentElement.style.setProperty('--test-color', this.hColor());
+      // this.document.documentElement.style.setProperty('--test-color', this.hColor());
+      this.renderer.setProperty(this.document.documentElement, 'style', `--test-color: ${this.hColor()};`);
     });
   }
 

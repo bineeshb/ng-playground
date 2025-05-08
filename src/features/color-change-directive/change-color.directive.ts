@@ -1,14 +1,15 @@
-import { Directive, ElementRef, effect, input } from '@angular/core';
+import { Directive, ElementRef, Renderer2, effect, input } from '@angular/core';
 
 @Directive({
   selector: '[appChangeColor]'
 })
 export class ChangeColorDirective {
-  appChangeColor = input('red');
+  appChangeColor = input('blueviolet');
 
-  constructor(readonly el: ElementRef) {
+  constructor(readonly el: ElementRef, readonly renderer: Renderer2) {
     effect(() => {
-      (el.nativeElement as HTMLElement).style.color = this.appChangeColor();
+      // (el.nativeElement as HTMLElement).style.color = this.appChangeColor();
+      renderer.setStyle(el.nativeElement, 'color', this.appChangeColor());
     });
   }
 

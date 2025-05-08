@@ -9,7 +9,7 @@ import { appRoutes } from './app.routes';
     <h1>NG Playground</h1>
     <select (change)="goto($event)">
     @for(route of routes; track route.path) {
-      <option [value]="route.path">{{ route.path }}</option>
+      <option [value]="route.path" [attr.selected]="route.path === defaultRoute ? true : null">{{ route.path }}</option>
     }
     </select>
     <router-outlet></router-outlet>
@@ -19,11 +19,16 @@ import { appRoutes } from './app.routes';
       display: block;
       height: 100vh;
     }
+
+    h1 {
+      color: var(--test-color);
+    }
   `,
   imports: [RouterOutlet],
 })
 export class App {
   routes = appRoutes.filter(({ path }) => !!path);
+  defaultRoute = appRoutes.find(({ path }) => path === '')?.redirectTo ?? appRoutes[0].path;
   router = inject(Router);
 
   goto(event: Event): void {

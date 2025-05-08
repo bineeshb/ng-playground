@@ -9,7 +9,7 @@ import { ChangeColorDirective } from './change-color.directive';
 })
 export class ColorChangeDirectiveComponent {
   colors = ['red', 'green', 'blue', 'grey', 'black', 'pink'];
-  pColor = signal(this.colors[0]);
+  pColor = signal('blueviolet');
 
   updateColor(color: string): void {
     this.pColor.set(color);
