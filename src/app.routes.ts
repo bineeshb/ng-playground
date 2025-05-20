@@ -14,12 +14,16 @@ export const appRoutes: Routes = [
     loadComponent: () => import('./features/color-change-directive/color-change-directive.component').then(c => c.ColorChangeDirectiveComponent)
   },
   {
+    path: 'dependency-injection',
+    loadComponent: () => import('./features/dependency-injection/dependency-injection.component').then(c => c.DependencyInjectionComponent)
+  },
+  {
     path: 'named-router-outlets',
     loadChildren: () => import('./features/named-router-outlets/named-router-outlets.component')
   },
   {
     path: '',
-    redirectTo: 'color-change-directive',
+    redirectTo: 'dependency-injection',
     pathMatch: 'full'
   }
 ];
