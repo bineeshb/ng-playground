@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
-import { FlowerService } from '../flower.service';
-import { AnimalService } from '../animal.service';
+import { FlowerService } from '../services/flower.service';
+import { AnimalService } from '../services/animal.service';
 
 @Component({
   selector: 'app-content',
