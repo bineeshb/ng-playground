@@ -1,4 +1,4 @@
-import { Component, SkipSelf, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FlowerService } from '../services/flower.service';
 import { AnimalService } from '../services/animal.service';
 import { ContentComponent } from '../content/content.component';
@@ -24,6 +24,7 @@ import { ContentComponent } from '../content/content.component';
 export class ChildComponent {
   flower = inject(FlowerService);
   // flower = inject(FlowerService, { skipSelf: true });
+  // flower = inject(FlowerService, { host: true });
   // flower = inject(FlowerService, { skipSelf: true, host: true, optional: true });
 
   animal = inject(AnimalService);
